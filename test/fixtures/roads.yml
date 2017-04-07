@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  km_from: 1.5
+  km_to: 1.5
+  district_id: 1
+  taluka_id: 1
+  width: MyString
+  surface: MyString
+  division: MyString
+  overlapping_from: 1.5
+  overlapping_to: 1.5
+  total: 1.5
+
+two:
+  name: MyString
+  km_from: 1.5
+  km_to: 1.5
+  district_id: 1
+  taluka_id: 1
+  width: MyString
+  surface: MyString
+  division: MyString
+  overlapping_from: 1.5
+  overlapping_to: 1.5
+  total: 1.5

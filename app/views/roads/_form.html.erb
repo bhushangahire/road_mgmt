@@ -1,0 +1,38 @@
+<%= bootstrap_form_for(road, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.text_field :name %>
+  <%#= f.select :category, [['MSH', 'MSH'], ['SH', 'SH'], ['MDR', 'MDR'], ['VR', 'VR']], { label: "Choose Category" } %>
+  <%= f.text_field :km_from %>
+  <%= f.text_field :km_to %>
+  <%= f.collection_select :district_id, District.all, :id, :name %>
+  <%= f.collection_select :taluka_id, Taluka.all, :id, :name %>
+  <%= f.select :width, [['10.00 m', '10.00 m'], ['7.00 m', '7.00 m'], ['5.50 m', '5.50 m'], ['3.75 m', '3.75 m'], ['10+ m', '10+ m']] %>
+  <%= f.select :surface, [['B.T.', 'B.T.'], ['W.B.M.', 'W.B.M.'], ['Murum / Soil', 'Murum / Soil']] %>
+  <%= f.grouped_collection_select :division_id, Division.all, :sub_divisions, :name, :id, :name %>
+  <%= f.text_field :overlapping_from %>
+  <%= f.text_field :overlapping_to %>
+  <%= f.text_field :total %>
+
+  <%= f.submit "Create" %>
+<% end %>
+
+
+<script type='text/javascript'>
+$(function(){
+  filterParksList();
+})
+
+function filterParksList(){
+  var parks = $('#game_park_id').html();
+
+  $('#game_game_category').change(function(){
+    var selectedGameCategory = $('#game_game_category :selected').text();
+    var optgroup = "optgroup[label='"+ selectedGameCategory + "']";
+    var parkOptions = $(parks).filter(optgroup).html();
+
+    if(selectedGameCategory != 'Other'){
+      $('#game_park_id').html(parkOptions);
+    }
+  });
+}
+
+</script>
